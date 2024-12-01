@@ -1,18 +1,14 @@
 import './App.css';
 import { useQuery } from '@apollo/client';
 import { FIND } from './graphql/demo';
+import { useUserContext } from './utils/useHooks';
 
 function App() {
-  const { loading, data } = useQuery(FIND, {
-    variables: {
-      id: 1,
-    },
-  });
+  const { store } = useUserContext();
 
   return (
     <div>
-      <p>data:{JSON.stringify(data)}</p>
-      <p>data:{loading}</p>
+      <p>store:{JSON.stringify(store)}</p>
     </div>
   );
 }
